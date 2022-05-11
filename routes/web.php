@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\Game;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,18 +35,7 @@ Route::get('/search', function(Request $request){
 Route::get('/', function () {
     return view('welcome',[
         'heading'=>'Games',
-        'games' =>[
-            [
-                'id' => 1,
-                'title' => 'Game 1',
-                'description'=> 'Game Description 1'
-            ],
-            [
-                'id' => 1,
-                'title' => 'Game 2',
-                'description'=> 'Game Description 2'
-            ]
-        ]
+        'games' => Game::all()
     ]);
 });
 
