@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/hello', function (){
+    return  response('<h1>Hello World</h1>', 200)
+    ->header('Content-Type', 'text/plain')
+    ->header('foo', 'bar');
 });
+
+Route::get('/posts/{id}', function($id){
+    return response('Post: ' . $id);
+})->where('id', '[0-9]+');
+
+
+Route::get('/search', function(Request $request){
+    return $request->name . " " . $request->city;
+});
+
+Route::get('/', function () {
+    return view('welcome',[
+        'heading'=>'Games',
+        'games' =>[
+            [
+                'id' => 1,
+                'title' => 'Game 1',
+                'description'=> 'Game Description 1'
+            ],
+            [
+                'id' => 1,
+                'title' => 'Game 2',
+                'description'=> 'Game Description 2'
+            ]
+        ]
+    ]);
+});
+
 
 Auth::routes();
 
