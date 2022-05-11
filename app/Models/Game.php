@@ -12,12 +12,21 @@ class Game {
                 'description'=> 'Game Description 1'
             ],
             [
-                'id' => 1,
+                'id' => 2,
                 'title' => 'Game Two',
                 'description'=> 'Game Description 2'
             ]
             ];
-      
     }
 
+    public static function find($id){
+        
+        $games = self::all();
+
+        foreach($games as $game){
+            if($game['id'] == $id){
+                return $game;
+            }
+        }
+    }
 }
