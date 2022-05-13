@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->decimal('price');
             $table->longText('description');
+            $table->timestamps();
         });
     }
 
