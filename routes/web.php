@@ -1,9 +1,10 @@
 <?php
 
+use App\Models\Game;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Models\Game;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,7 @@ Route::get('/search', function(Request $request){
 Route::get('/', function () {
     return view('welcome',[
         'heading'=>'Games',
-        'games' => Game::all()
+        'games' => Product::all()
     ]);
 });
 
