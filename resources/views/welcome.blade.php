@@ -1,3 +1,7 @@
+@extends('layouts\app')
+
+@section('content')
+
 <h1>{{$heading}}</h1>
 
 @unless(count($games) == 0)
@@ -13,3 +17,5 @@
 <p> No Games found </p>
 
 @endunless
+
+@endsection

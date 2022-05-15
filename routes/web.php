@@ -43,7 +43,7 @@ Route::get('/', function () {
 Route::get('/game/{id}',function($id){
     return view('game',[
         'heading'=>'Game',
-        'games' => Game::find($id)
+        'games' => Product::find($id)
     ]);
 });
 
