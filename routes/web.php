@@ -40,10 +40,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/game/{id}',function($id){
+Route::get('/game/{game}',function(Product $game){
     return view('game',[
-        'heading'=>'Game',
-        'games' => Product::find($id)
+        'game' => $game
     ]);
 });
 
