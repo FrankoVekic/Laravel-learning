@@ -22,6 +22,7 @@ class ProductFactory extends Factory
             'quantity' => $this->faker->unique()->numberBetween(1,20),
             'price' => $this->faker->randomFloat(2,1,100),
             'description' => $this->faker->paragraph(),
+            'tags'=>'laravel, api, backend',
         ];
     }
 }

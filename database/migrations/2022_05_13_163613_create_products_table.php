@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('price');
             $table->longText('description');
             $table->timestamps();
+            $table->string('tags');
         });
     }
 
