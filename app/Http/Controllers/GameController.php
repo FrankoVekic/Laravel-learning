@@ -11,7 +11,8 @@ class GameController extends Controller
     public function index(){
         //dd(request()->tag);
         return view('games.index',[
-            'games' => Product::latest()->filter(request(['tag']))->get()
+            'games' => Product::latest()->filter
+            (request(['tag', 'search']))->get()
         ]);
     }
 
