@@ -21,4 +21,8 @@ class GameController extends Controller
             'game' => $game
         ]);
     }
+
+    public function create(){
+        return view('games.create');
+    }
 }

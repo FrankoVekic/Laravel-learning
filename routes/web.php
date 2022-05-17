@@ -34,14 +34,17 @@ Route::get('/search', function(Request $request){
     return $request->name . " " . $request->city;
 });
 */
+
+//All games
 Route::get('/', [GameController::class, 'index']);
 
-Route::get('/game/{game}', [GameController::class, 'show']);
+//Show Create Form
+Route::get('/games/create', [GameController::class, 'create']);
+
+//Single game
+Route::get('/games/{game}', [GameController::class, 'show']);
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 // Common Resource Routes:
 // index - Show all products

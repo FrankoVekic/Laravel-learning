@@ -8,7 +8,7 @@
         />
         <div>
             <h3 class="text-2xl">
-                <a href="game/{{$game->id}}">{{ $game->title }}</a>
+                <a href="games/{{$game->id}}">{{ $game->title }}</a>
             </h3>
             <div class="text-xl font-bold mb-4">{{ $game->price }}</div>
             <x-game-tags :tagsCsv="$game->tags"/>
