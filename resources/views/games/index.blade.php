@@ -1,6 +1,4 @@
-@extends('layouts\app')
-
-@section('content')
+<x-app>
 @include('partials._hero')
 @include('partials._search')
 
@@ -19,4 +17,4 @@
 @endunless
 
 </div>
-@endsection
+</x-app>

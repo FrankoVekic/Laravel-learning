@@ -1,6 +1,4 @@
-@extends('layouts\app')
-
-@section('content')
+<x-app>
 @include('partials._search')    
 
 <a href="/Laravel-learning/public" class="inline-block text-black ml-4 mb-4"
@@ -66,4 +64,4 @@
                 </x-card>
             </div>
 
-@endsection
+</x-app>
