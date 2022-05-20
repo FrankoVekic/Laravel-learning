@@ -35,17 +35,6 @@ Route::get('/search', function(Request $request){
 });
 */
 
-//All games
-Route::get('/', [GameController::class, 'index']);
-
-//Show Create Form
-Route::get('/games/create', [GameController::class, 'create']);
-
-//Single game
-Route::get('/games/{game}', [GameController::class, 'show']);
-
-Auth::routes();
-
 // Common Resource Routes:
 // index - Show all products
 // show - Show single product
@@ -54,3 +43,18 @@ Auth::routes();
 // edit - Show form to edit product
 // update - Update product
 // destroy - Delete product  
+
+//All games
+Route::get('/', [GameController::class, 'index']);
+
+//Show Create Form
+Route::get('/games/create', [GameController::class, 'create']);
+
+//Store Games Data
+Route::post('/games', [GameController::class, 'store']);
+
+//Single game
+Route::get('/games/{game}', [GameController::class, 'show']);
+
+Auth::routes();
+
