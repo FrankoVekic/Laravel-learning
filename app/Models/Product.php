@@ -9,6 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title','price','quantity','description','tags'];
+
     public static function find($id){
         
         $games = self::all();
