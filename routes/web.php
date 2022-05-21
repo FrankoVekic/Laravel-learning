@@ -59,6 +59,9 @@ Route::get('/games/{game}/edit',[GameController::class,'edit']);
 // Update Game
 Route::put('/games/{game}',[GameController::class,'update']);
 
+// Delete Game
+Route::delete('/games/{game}',[GameController::class,'destroy']);
+
 //Single Game
 Route::get('/games/{game}', [GameController::class, 'show']);
 

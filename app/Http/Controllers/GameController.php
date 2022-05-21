@@ -72,4 +72,9 @@ class GameController extends Controller
         return back()->with('message','Product updated successfully!');
     }
 
+    //Delete Product
+    public function destroy(Product $game){
+        $game->delete();
+        return redirect('/')->with('message','Game seleted sucessfully');
+    }
 }
