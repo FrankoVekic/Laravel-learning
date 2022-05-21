@@ -39,6 +39,6 @@ class GameController extends Controller
 
         Product::create($formFields);
 
-        return redirect('/');
+        return redirect('/')->with('message','Product created successfully!');
     }
 }

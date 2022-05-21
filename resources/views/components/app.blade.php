@@ -60,5 +60,6 @@
             >Post Game</a
         >
     </footer>
+    <x-flash-message/>
 </body>
 </html>
