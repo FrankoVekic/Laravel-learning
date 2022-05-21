@@ -20,6 +20,7 @@
                 class="border border-gray-200 rounded p-2 w-full"
                 name="title"
                 placeholder="Example: Game"
+                value="{{ old('title') }}"
             />
             @error('title')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -34,6 +35,7 @@
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="price"
+                value="{{ old('price') }}"
             />
             @error('price')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -50,6 +52,7 @@
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="quantity"
+                value="{{ old('quantity') }}"
             />
             @error('quantity')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -65,6 +68,7 @@
                 class="border border-gray-200 rounded p-2 w-full"
                 name="tags"
                 placeholder="Example: PC, Strategy, etc"
+                value="{{ old('tags') }}"
             />
             @error('tags')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -94,7 +98,9 @@
                 name="description"
                 rows="10"
                 placeholder="Say something about this game.."
-            ></textarea>
+            >
+        {{ old('description') }}
+        </textarea>
             @error('description')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
             @enderror
