@@ -17,4 +17,8 @@
 @endunless
 
 </div>
+
+<div class="mt-6 p-4">
+    {{ $games->links() }}
+</div>
 </x-app>

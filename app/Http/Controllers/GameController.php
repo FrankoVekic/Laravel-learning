@@ -13,7 +13,7 @@ class GameController extends Controller
         //dd(request()->tag);
         return view('games.index',[
             'games' => Product::latest()->filter
-            (request(['tag', 'search']))->get()
+            (request(['tag', 'search']))->paginate(6) //or simplePaginate
         ]);
     }
 
