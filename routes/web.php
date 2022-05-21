@@ -44,7 +44,7 @@ Route::get('/search', function(Request $request){
 // update - Update product
 // destroy - Delete product  
 
-//All games
+//All Games
 Route::get('/', [GameController::class, 'index']);
 
 //Show Create Form
@@ -53,7 +53,13 @@ Route::get('/games/create', [GameController::class, 'create']);
 //Store Games Data
 Route::post('/games', [GameController::class, 'store']);
 
-//Single game
+//Show Edit Form
+Route::get('/games/{game}/edit',[GameController::class,'edit']);
+
+// Update Game
+Route::put('/games/{game}',[GameController::class,'update']);
+
+//Single Game
 Route::get('/games/{game}', [GameController::class, 'show']);
 
 Auth::routes();

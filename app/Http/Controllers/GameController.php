@@ -46,4 +46,30 @@ class GameController extends Controller
 
         return redirect('/')->with('message','Product created successfully!');
     }
+
+    // Show Edit Form
+    public function edit(Product $game){
+        return view('games.edit',['game' => $game]);
+    }
+
+    // Update Game Data
+    public function update(Request $request,Product $game){
+        $formFields = $request->validate([
+            'title'=>'required',
+            'price'=>'required',
+            'quantity'=>'required',
+            'tags'=>'required',
+            'description'=>'required'
+        ]);
+
+        if($request->hasFile('image')){
+            $formFields['image'] = $request->file('image')
+            ->store('images','public');
+        }
+        
+        $game->update($formFields);
+
+        return back()->with('message','Product updated successfully!');
+    }
+
 }
