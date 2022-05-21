@@ -7,7 +7,7 @@
         <p class="mb-4">Post a game</p>
     </header>
 
-    <form method="POST" action="{{ env('APP_URL') . '/games' }}">
+    <form method="POST" action="{{ env('APP_URL') . '/games' }}" enctype="multipart/form-data">
         @csrf
         <div class="mb-6">
             <label
@@ -75,7 +75,7 @@
             @enderror
         </div>
     
-     {{--  <div class="mb-6">
+       <div class="mb-6">
             <label for="image" class="inline-block text-lg mb-2">
                 Game Image
             </label>
@@ -84,7 +84,10 @@
                 class="border border-gray-200 rounded p-2 w-full"
                 name="image"
             />
-        </div> --}}
+            @error('image')
+                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+            @enderror
+        </div> 
 
         <div class="mb-6">
             <label
