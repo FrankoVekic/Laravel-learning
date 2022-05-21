@@ -7,7 +7,7 @@
         <p class="mb-4">Post a game</p>
     </header>
 
-    <form method="POST" action="/Laravel-learning/public/games">
+    <form method="POST" action="{{ env('APP_URL') . '/games' }}">
         @csrf
         <div class="mb-6">
             <label
