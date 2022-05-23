@@ -75,6 +75,6 @@ class GameController extends Controller
     //Delete Product
     public function destroy(Product $game){
         $game->delete();
-        return redirect('/')->with('message','Game seleted sucessfully');
+        return redirect('/')->with('message','Game deleted sucessfully');
     }
 }

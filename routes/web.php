@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\GameController;
 use App\Models\Game;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,5 +66,15 @@ Route::delete('/games/{game}',[GameController::class,'destroy']);
 //Single Game
 Route::get('/games/{game}', [GameController::class, 'show']);
 
-Auth::routes();
+// Show Register/Create Form
+Route::get('/register',[UserController::class,'create']);
+
+// Create New User
+Route::post('/users',[UserController::class,'store']);
+
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify'=>false
+]);
 
