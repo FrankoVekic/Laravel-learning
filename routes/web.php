@@ -75,9 +75,16 @@ Route::post('/users',[UserController::class,'store']);
 // Log user out
 Route::post('/logout',[UserController::class,'logout']);
 
+// Show Login Form
+Route::get('/login',[UserController::class,'login']);
+
+// Log In User
+Route::post('/users/authenticate',[UserController::class,'authenticate']);
+
 Auth::routes([
     'register' => false,
     'reset' => false,
-    'verify'=>false
+    'verify'=>false,
+    'login'=>false
 ]);
 
