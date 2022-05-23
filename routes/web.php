@@ -49,34 +49,43 @@ Route::get('/search', function(Request $request){
 Route::get('/', [GameController::class, 'index']);
 
 //Show Create Form
-Route::get('/games/create', [GameController::class, 'create']);
+Route::get('/games/create', [GameController::class, 'create'])
+->middleware('auth');
 
 //Store Games Data
-Route::post('/games', [GameController::class, 'store']);
+Route::post('/games', [GameController::class, 'store'])
+->middleware('auth');
 
 //Show Edit Form
-Route::get('/games/{game}/edit',[GameController::class,'edit']);
+Route::get('/games/{game}/edit',[GameController::class,'edit'])
+->middleware('auth');;
 
 // Update Game
-Route::put('/games/{game}',[GameController::class,'update']);
+Route::put('/games/{game}',[GameController::class,'update'])
+->middleware('auth');
 
 // Delete Game
-Route::delete('/games/{game}',[GameController::class,'destroy']);
+Route::delete('/games/{game}',[GameController::class,'destroy'])
+->middleware('auth');
 
 //Single Game
 Route::get('/games/{game}', [GameController::class, 'show']);
 
 // Show Register/Create Form
-Route::get('/register',[UserController::class,'create']);
+Route::get('/register',[UserController::class,'create'])
+->middleware('guest');
 
 // Create New User
 Route::post('/users',[UserController::class,'store']);
 
 // Log user out
-Route::post('/logout',[UserController::class,'logout']);
+Route::post('/logout',[UserController::class,'logout'])
+->middleware('auth');
 
 // Show Login Form
-Route::get('/login',[UserController::class,'login']);
+Route::get('/login',[UserController::class,'login'])
+->name('login')
+->middleware('guest');
 
 // Log In User
 Route::post('/users/authenticate',[UserController::class,'authenticate']);
