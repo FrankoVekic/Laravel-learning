@@ -33,6 +33,19 @@
                 ><img class="w-24" src="{{ asset('images/logo.png') }}" alt="" class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
+                @auth
+                <li>
+                    <span class="font-bold uppercase">
+                        Welcome {{ auth()->user()->name }}
+                    </span>
+                </li> 
+                <li>
+                    <a href="{{ env('APP_URL') }}/games/manage" class="fa-solid"
+                        ><i class="fa-gear"></i>
+                        Manage Games</a
+                    >
+                </li>
+                @else
                 <li>
                     <a href="{{ env('APP_URL') }}/register" class="hover:text-laravel"
                         ><i class="fa-solid fa-user-plus"></i> Register</a
@@ -44,6 +57,7 @@
                         Login</a
                     >
                 </li>
+                @endauth
             </ul>
         </nav>
 
