@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -56,6 +57,12 @@ class GameController extends Controller
 
     // Update Game Data
     public function update(Request $request,Product $game){
+
+        // Make sure logged in user is owner
+        if($game->user_id != auth()->id()){
+            abort(403,'Unauthorized Action');
+        }
+
         $formFields = $request->validate([
             'title'=>'required',
             'price'=>'required',
@@ -74,9 +81,18 @@ class GameController extends Controller
         return back()->with('message','Product updated successfully!');
     }
 
-    //Delete Product
+    // Delete Product
     public function destroy(Product $game){
+        if($game->user_id != auth()->id()){
+            abort(403,'Unauthorized Action');
+        }
         $game->delete();
         return redirect('/')->with('message','Game deleted sucessfully');
+    }
+
+    // Manage Products
+    public function manage(){
+        return view('games.manage',[
+        'products' => auth()->user()->products()->get()]);
     }
 }

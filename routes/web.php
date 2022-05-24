@@ -68,6 +68,10 @@ Route::put('/games/{game}',[GameController::class,'update'])
 Route::delete('/games/{game}',[GameController::class,'destroy'])
 ->middleware('auth');
 
+// Manage Products 
+Route::get('/games/manage',[GameController::class,'manage'])
+->middleware('auth');
+
 //Single Game
 Route::get('/games/{game}', [GameController::class, 'show']);
 
@@ -89,6 +93,7 @@ Route::get('/login',[UserController::class,'login'])
 
 // Log In User
 Route::post('/users/authenticate',[UserController::class,'authenticate']);
+
 
 Auth::routes([
     'register' => false,

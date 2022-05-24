@@ -42,7 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function product(){
+    public function products(){
         return $this->hasMany(Product::class,'user_id');
     }
 }
