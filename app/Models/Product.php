@@ -33,4 +33,9 @@ class Product extends Model
             ->orWhere('tags', 'like', '%' . request()->search . '%');
         }
     }
+
+    // Relationship To User
+    public function user (){
+        return $this->belongsTo(User::class,'user_id');
+    }
 }
