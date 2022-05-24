@@ -41,6 +41,8 @@ class GameController extends Controller
             $formFields['image'] = $request->file('image')
             ->store('images','public');
         }
+
+        $formFields['user_id'] = auth()->id();
         
         Product::create($formFields);
 
